@@ -28,7 +28,7 @@ const manager = () => {
     }
 
     const getpasswords = async() => {
-        let req=await fetch("http://localhost:3000/")
+        let req = await fetch("/api/get-passwords")
         let passwords = await req.json()
         setpasswordArray(passwords)
     }
@@ -51,7 +51,7 @@ const manager = () => {
         }
 
         // if any such id exists in db, then delete it. (for edit functionality)
-        await fetch("http://localhost:3000/", {
+        await fetch("/api/delete-password", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -59,7 +59,7 @@ const manager = () => {
             body: JSON.stringify({ id:form.id})
         })
 
-        await fetch("http://localhost:3000/", {
+        await fetch("/api/save-password", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -86,7 +86,7 @@ const manager = () => {
         if (c) {
             const updatedPasswords = passwordArray.filter(item => item.id !== id)
             setpasswordArray(updatedPasswords)
-            let res=await fetch("http://localhost:3000/", {
+            let res=await fetch("/api/delete-password", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
