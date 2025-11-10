@@ -218,7 +218,7 @@ const manager = () => {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="w-85 p-2 border border-white">
+                                            <td className="w-85 p-2 border border-white pb-0">
                                                 <span className='cursor-pointer mx-1.5' onClick={() => editPassword(item.id)}><lord-icon
                                                     src="https://cdn.lordicon.com/fikcyfpp.json"
                                                     trigger="hover"
